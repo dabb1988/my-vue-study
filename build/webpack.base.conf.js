@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // 基本设置
 module.exports = {
-  entry: './src/index.js',
+  context: path.resolve(__dirname, "../"),
+  entry: './src/main.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './dist')
@@ -39,7 +40,7 @@ module.exports = {
       }
     ),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.ejs',
       filename: 'index.html'
     }),
   ],
