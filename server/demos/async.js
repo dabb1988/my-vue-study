@@ -4,27 +4,37 @@
 // yield function*
 // async await
 import path from 'path'
-
-let Async = Object.create(null)
-
-// *事件监听
 import events from 'events'
-const obj = new events.EventEmitter()
-obj.addListener("look", function(){
+import util from '../../common/utils/index.js'
+
+const Async = Object.create(null)
+// #事件监听
+Async.eventDemo = () => {
+  const obj = new events.EventEmitter()
+  obj.addListener("look", function(){
   console.log("你愁啥")
 })
-
-Async.eventDemo = () => {
   obj.emit("look")
 }
+// #Promise
+Async.promiseDemo = () => {
+  util.readFile(path.resolve(__dirname + "/a.txt")).then(function(success){
+    console.log("successa:")
+    console.log(success)
+  })
 
-import fs from 'fs'
-console.log(__dirname)
-fs.readFile(path.resolve(__dirname + "/a.txt"), function(err, data){
-  if (err) return console.error(err)
-  const ss = data
-  console.log('hello world' + data)
-})
+  util.readFile(path.resolve(__dirname + "/b.txt")).then(function(success){
+    console.log("successb:")
+    console.log(success)
+  })
+}
+// #yield function*  ES7
+Async.yieldFn = function* (){
+  const fa = yield util.readFile(path.resolve(__dirname + "/a.txt"))
+  const fb = yield util.readFile(path.resolve(__dirname + "/b.txt"))
+}
+
+Async.d
 
 
 export default Async
