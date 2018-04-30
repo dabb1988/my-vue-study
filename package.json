@@ -59,7 +59,11 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
+    "blueimp-md5": "^2.10.0",
+    "i": "^0.3.6",
+    "js-sha1": "^0.6.0",
     "koa-static": "^4.0.2",
+    "npm": "^6.0.0",
     "path-to-regexp": "^2.2.1",
     "vue": "^2.5.16",
     "vue-loader": "^14.2.2",

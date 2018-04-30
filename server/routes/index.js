@@ -1,5 +1,7 @@
 import Router from 'koa-router'
 import pathToRegExp from 'path-to-regexp'
+import md5 from 'blueimp-md5'
+import sha1 from 'js-sha1'
 
 const router = new Router()
 
@@ -42,6 +44,20 @@ router
   .get("/index*", (ctx, next) => {
     // 重定向
     ctx.response.redirect('news/1111')
+  })
+  .get("/", (ctx, next) => {
+    const {signature, echostr, timestamp, nonce} = ctx.request.query
+
+    let array = [nonce , timestamp , "ajia945"]
+    array = array.sort()
+    const sha1_str = sha1(array[0]+array[1]+array[2]) 
+    if (sha1_str === signature) {
+      ctx.response.type = "text"
+      ctx.response.body = echostr
+    } else {
+      ctx.response.type = "text"
+      ctx.response.body = "!!!"
+    }
   })
   .get("*", (ctx, next) => {
     ctx.response.type = "html",
