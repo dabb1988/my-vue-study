@@ -2,6 +2,7 @@ import Koa from 'koa'
 import fs from 'fs'
 import path from 'path'
 import Static from 'koa-static'
+import koaBody from 'koa-body'
 
 // koa1 generator
 // koa2 aysnc await
@@ -12,9 +13,9 @@ const app = new Koa()
 // 静态资源，join可以支持../
 const main = Static(path.join(__dirname, "../assets/"))
 
-
 app
   .use(main)
+  .use(koaBody())
   .use(router.routes())
   .use(router.allowedMethods())
 
