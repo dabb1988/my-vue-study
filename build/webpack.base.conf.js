@@ -2,11 +2,12 @@ const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
 
 // 基本设置
 module.exports = {
   context: path.resolve(__dirname, "../"),
-  entry: './client/main.js',
+  entry: {app:['webpack-hot-middleware/client?noInfo=true&reload=true', './client/main.js']},
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './dist')
@@ -26,6 +27,7 @@ module.exports = {
     }]
   },
   plugins: [
+  	new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(['dist'], {
       root: __dirname,
       verbose: true,
