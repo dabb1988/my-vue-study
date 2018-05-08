@@ -59,6 +59,17 @@ router
       ctx.response.body = "!!!"
     }
   })
+  .post("/api/xhr", (ctx, next) => {
+    console.log(ctx.request)
+    console.log(ctx.request.body)
+    console.log(ctx.request.body.name)
+
+    ctx.response.type = "json",
+    ctx.response.body = {
+      msg: 'haha',
+      code: "0"
+    }
+  })
   .get("*", (ctx, next) => {
     ctx.response.type = "html",
     ctx.response.body = "<h1>404</h1>"
