@@ -3,7 +3,9 @@ import pathToRegExp from 'path-to-regexp'
 import md5 from 'blueimp-md5'
 import sha1 from 'js-sha1'
 
-const router = new Router()
+const router = new Router({
+	prefix: '/active'
+})
 
 const newsIndex = (ctx, next) => {
   ctx.response.type = "html"
