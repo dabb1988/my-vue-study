@@ -17,17 +17,15 @@ import webpackConfig from "../build/webpack.dev.conf"
 import devMiddleware from "./middlewares/devMiddleware"
 import hotMiddleware from "./middlewares/hotMiddleware"
 
-const compiler = webpack(webpackConfig);
+//const compiler = webpack(webpackConfig);
+//console.log(compiler)
+//app.use(devMiddleware(compiler));
+//app.use(hotMiddleware(compiler));
 
-console.log(compiler)
-
-
-app.use(devMiddleware(compiler));
-app.use(hotMiddleware(compiler));
-//app
-//.use(main)
-//.use(router.routes())
-//.use(router.allowedMethods())
+app
+.use(main)
+.use(router.routes())
+.use(router.allowedMethods())
 
 // const main = async (c) => {
 //   console.log(c.request.path)
@@ -75,11 +73,11 @@ app.use(hotMiddleware(compiler));
 //   console.log(`${ctx.method} ${ctx.url} - ${ms}`)
 // })
 
-   app.use(async ctx => {
-     console.log(3)
-     ctx.response.type = "html"
-     ctx.response.body = fs.createReadStream('./template/index.html', {start:20,end:100})
-   })
+// app.use(async ctx => {
+//   console.log(3)
+//   ctx.response.type = "html"
+//   ctx.response.body = fs.createReadStream('./template/index.html', {start:20,end:100})
+// })
 
 
 app.listen(30010)

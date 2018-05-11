@@ -1,0 +1,28 @@
+body {
+	margin: 0;
+}
+.one-arm {
+	text-align: center;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+#gamePanel{
+	width: 600px;
+	border: 1px solid;
+}
+
+.imgePanel{
+	
+}
+
+#banana{
+	width: 110px;
+}
+
+#cherry{
+	
+}
+
+#orange{
+	
+}
