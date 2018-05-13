@@ -7,8 +7,7 @@ body {
 }
 
 #gamePanel{
-	width: 600px;
-	border: 1px solid;
+	width: 100%;
 }
 
 .imgePanel{
