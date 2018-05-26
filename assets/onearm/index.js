@@ -98,8 +98,8 @@
     fruitsBeg: 1, // 编号开始位
     fruitsEnd: 4, // 编号结束位
     fruitsfolder: '../images/fruits/', // 水果位置
-    fruitsH: 200,
-    fruitsW: 200,
+    fruitsH: 180,
+    fruitsW: 180,
     array_1: [], // 水果列表
     array_2: [],
     array_3: [],
@@ -124,8 +124,8 @@
     
     height_1 = renderImagesArry(0, height_1, opt.speed_1, opt.array_1, ctx)
     
-    height_2 = renderImagesArry(options.fruitsH, height_2, opt.speed_2, opt.array_2, ctx)
-    height_3 = renderImagesArry(options.fruitsH*2, height_3, opt.speed_3, opt.array_3, ctx)
+    height_2 = renderImagesArry(options.fruitsH + 20, height_2, opt.speed_2, opt.array_2, ctx)
+    height_3 = renderImagesArry((options.fruitsH + 20)*2, height_3, opt.speed_3, opt.array_3, ctx)
 
     // 第三个是肯定中奖的
 
